@@ -2,7 +2,7 @@ module Nazk
 	module Connection
 		def go
 			c = conn
-			response = c.post path, @current_params
+			response = c.post path, 'responsiblePositions%5B%5D=1'#@current_params
 			if response.status == 200
 				get_result(response.body)
 			else

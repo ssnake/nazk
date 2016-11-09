@@ -1,6 +1,7 @@
 require "nazk/version"
 require 'json'
 require 'faraday'
+require 'nokogiri'
 require 'nazk/params_builder'
 require 'nazk/connection'
 require 'nazk/api'

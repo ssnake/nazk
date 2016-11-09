@@ -6,7 +6,7 @@ module Nazk
 		
 	private
 		def get_result body
-			Nazk::Result.new(body, Nazk::Site.new(@current_params))
+			Nazk::SiteResult.new(body, Nazk::Site.new(@current_params))
 		end
 		def path
 			'/search'
