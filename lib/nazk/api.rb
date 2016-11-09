@@ -3,10 +3,7 @@ module Nazk
 		include ParamsBuilder
 		include Connection
 
-		def initialize params={}
-			@current_params = params
 
-		end
 		
 		
 
@@ -15,7 +12,7 @@ module Nazk
 	private
 
 		def get_result body
-			Nazk::Result.new(body, Nazk::Api.new(@current_params))
+			Nazk::ApiResult.new(body, Nazk::Api.new(@current_params))
 		end
 
 		def path

@@ -6,6 +6,8 @@ require 'nazk/connection'
 require 'nazk/api'
 require 'nazk/site'
 require 'nazk/result'
+require 'nazk/api_result'
+require 'nazk/site_result'
 
 module Nazk
 

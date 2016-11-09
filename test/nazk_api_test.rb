@@ -21,7 +21,7 @@ class NazkApiTest < Minitest::Test
   end
 
   def test_deputy
-  	
+  	# skip
   	result =@api.deputy.search('').deputy.go
   	puts "presedent_level count: #{result.total_size}"
   	assert_equal 1, result.page_number

@@ -1,6 +1,10 @@
 module Nazk
 	module ParamsBuilder
 		MAP_PARAMS = {search: :q, deputy: "responsiblePositions[]"}	
+		def initialize params={}
+			@current_params = params
+		end
+		
 		def deputy
 			@current_params["responsiblePositions[]"] ||= []
 			@current_params["responsiblePositions[]"]  << 2
