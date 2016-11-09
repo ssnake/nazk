@@ -8,30 +8,22 @@ module Nazk
 
 		end
 		
-		def go
-			c = conn
-			response = c.post '/v1/declaration/', @current_params
-			# byebug
-			if response.status == 200
-				Nazk::Result.new(response.body, Nazk::Api.new(@current_params))
-			else
-				raise	"Error: #{response.inspect}"
-			end
-		ensure
-			reset
-		end
+		
 
 
 
 	private
 
+		def get_result body
+			Nazk::Result.new(body, Nazk::Api.new(@current_params))
+		end
 
-
+		def path
+			'/v1/declaration/'
+		end
+		
 		def url
 			"https://public-api.nazk.gov.ua"
 		end
-
-
-	
 	end
 end

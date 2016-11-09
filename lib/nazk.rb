@@ -4,6 +4,7 @@ require 'faraday'
 require 'nazk/params_builder'
 require 'nazk/connection'
 require 'nazk/api'
+require 'nazk/site'
 require 'nazk/result'
 
 module Nazk

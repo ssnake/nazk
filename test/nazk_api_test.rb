@@ -1,6 +1,6 @@
 require 'test_helper'
 
-class NazkTest < Minitest::Test
+class NazkApiTest < Minitest::Test
   def setup
   	@api = Nazk::Api.new
   end
@@ -21,6 +21,7 @@ class NazkTest < Minitest::Test
   end
 
   def test_deputy
+  	
   	result =@api.deputy.search('').deputy.go
   	puts "presedent_level count: #{result.total_size}"
   	assert_equal 1, result.page_number
