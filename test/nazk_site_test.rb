@@ -7,7 +7,7 @@ class NazkSiteTest < Minitest::Test
   
   def test_deputy
   	# skip
-  	result =@site.presedent_level.search('').go
+  	result =@site.responsiblePositions([1,2]).search('').go
   	puts "presedent_level count: #{result.total_size}"
   	
   end

@@ -10,6 +10,7 @@ require 'nazk/result'
 require 'nazk/api_result'
 require 'nazk/site_result'
 
+
 module Nazk
 
 end
