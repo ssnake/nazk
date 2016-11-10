@@ -9,7 +9,7 @@ class NazkApiTest < Minitest::Test
   end
 
   def test_search
-  	skip
+  	# skip
     result =@api.search('Володимирович').go
     assert result.items.count > 0
     assert_equal 1, result.page_number
@@ -21,8 +21,8 @@ class NazkApiTest < Minitest::Test
   end
 
   def test_deputy
-  	skip
-  	result =@api.deputy.search('').deputy.go
+  	# skip
+  	result =@api.responsiblePositions([1]).search('').deputy.go
   	puts "presedent_level count: #{result.total_size}"
   	assert_equal 1, result.page_number
   	puts result.items.first

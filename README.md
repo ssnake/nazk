@@ -1,8 +1,6 @@
 # Nazk
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/nazk`. To experiment with that code, run `bin/console` for an interactive prompt.
-
-TODO: Delete this and the text above, and describe your gem
+Гем для работы с сайтом https://public.nazk.gov.u и его api 
 
 ## Installation
 
@@ -14,25 +12,58 @@ gem 'nazk'
 
 And then execute:
 
-    $ bundle
+   $ bundle
 
 Or install it yourself as:
 
-    $ gem install nazk
+   $ gem install nazk
+
 
 ## Usage
 
-TODO: Write usage instructions here
+### Api
 
+Api НАЗК не умеер работать с параметрами:
+
+* page
+* declarationType
+* declarationYear
+* documentType
+* dtStart
+* dtEnd
+* isRisk
+* responsiblePositions
+
+	api = Nazk::Api.new
+	results = api.search('Володимирович').go
+	result.items # -> json элементы текущей страницы
+	result.items[0] # -> {"id"=>"9a594c78-28c2-49bf-a7ba-44cd9c8e649a", "firstname"=>"Василь Васильович", "lastname"=>"Бабак", "placeOfWork"=>"Головне управління Національної поліції в Київській області", "position"=>"Начальник відділу контролю за обігом зброї у сфері дозвільної системи Управління превентивної діяльності ГУНП в Київській області", "linkPDF"=>"https://public.nazk.gov.ua/storage/documents/pdf/9/a/5/9/9a594c78-28c2-49bf-a7ba-44cd9c8e649a.pdf"}
+	result.page_number # -> текущий номер страницы
+	result.total_size # -> всего элементов в запросе
+	result2 = result.next # -> переход на следущую страницу. в данный момент api назк не умеет ходить по страницам
+
+
+
+### Site
+
+Сайт  НАЗК не умеер работать с параметрами:
+
+* page
+
+	site = Nazk::Site.new
+	#site.<parameter_name1(value)>.<parameter_name2(value)>.go
+	result = site.responsiblePositions([1,2]).search('').go #-> выдает результаты для Президент України, Прем’єр-міністр України, член Кабінету Міністрів України, перший заступник або заступник міністра та народний депутат України
+	result.items # -> элементы текущей страницы
+	result.items[0] # -> {:id=>"8608bf95-082e-4490-9183-418cfbf945c7", :name=>"Шкіря Ігор Миколайович"}
+	result.page_number # -> текущий номер страницы
+	result.total_size # -> всего элементов в запросе
+	
 ## Development
 
-After checking out the repo, run `bin/setup` to install dependencies. Then, run `rake test` to run the tests. You can also run `bin/console` for an interactive prompt that will allow you to experiment.
-
-To install this gem onto your local machine, run `bundle exec rake install`. To release a new version, update the version number in `version.rb`, and then run `bundle exec rake release`, which will create a git tag for the version, push git commits and tags, and push the `.gem` file to [rubygems.org](https://rubygems.org).
 
 ## Contributing
 
-Bug reports and pull requests are welcome on GitHub at https://github.com/[USERNAME]/nazk.
+Bug reports and pull requests are welcome on GitHub at https://github.com/ssnake/nazk.
 
 
 ## License
