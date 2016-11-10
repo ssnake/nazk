@@ -1,6 +1,6 @@
 # Nazk
 
-Гем для работы с сайтом https://public.nazk.gov.u и его api 
+Гем для работы с сайтом https://public.nazk.gov.ua и его api 
 
 ## Installation
 
