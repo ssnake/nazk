@@ -7,7 +7,7 @@
 Add this line to your application's Gemfile:
 
 ```ruby
-gem 'nazk'
+gem 'nazk', github: 'ssnake/nazk'
 ```
 
 And then execute:
@@ -15,11 +15,7 @@ And then execute:
 ```ruby
   $ bundle
 ```
-Or install it yourself as:
 
-```ruby
-  $ gem install nazk
-```
 
 ## Usage
 
